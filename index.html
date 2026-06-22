@@ -6,34 +6,57 @@
   <title>LiteVault</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { background: linear-gradient(135deg, #0a0a0a, #1a1a2e); }
-    .glass { background: rgba(255,255,255,0.08); backdrop-filter: blur(28px); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 10px 50px rgba(0,0,0,0.6); }
-    .header-glass { background: rgba(255,255,255,0.12); backdrop-filter: blur(32px); box-shadow: 0 0 60px rgba(165,243,252,0.4); }
-    .nav-glass { background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); }
-    .nav-btn { background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); transition: all 0.2s; }
-    .nav-btn:hover { background: rgba(165,243,252,0.25); transform: translateY(-2px); }
+    body { 
+      background: linear-gradient(145deg, #0a0a0a, #111827, #1e2937); 
+      min-height: 100vh;
+    }
+    .liquid-glass {
+      background: rgba(255, 255, 255, 0.09);
+      backdrop-filter: blur(40px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -2px 0 rgba(255, 255, 255, 0.1),
+        0 0 30px rgba(165, 243, 252, 0.3);
+    }
+    .nav-glass {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      transition: all 0.3s ease;
+    }
+    .nav-btn:hover {
+      background: rgba(165, 243, 252, 0.25);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 20px rgba(165, 243, 252, 0.3);
+    }
   </style>
 </head>
-<body class="min-h-screen flex flex-col items-center pt-8 gap-8">
+<body class="flex flex-col items-center justify-center gap-10 py-12">
 
-  <!-- LiteVault Header -->
-  <div class="header-glass px-28 py-8 rounded-3xl text-center">
-    <h1 class="text-8xl font-bold tracking-[-2px] text-white">LiteVault</h1>
+  <!-- LiteVault Title - Enhanced Liquid Glass -->
+  <div class="liquid-glass px-32 py-8 rounded-[2.5rem] text-center">
+    <h1 class="text-8xl font-bold tracking-[-3px] text-white">LiteVault</h1>
   </div>
 
-  <!-- Navigation Buttons (right below header) -->
-  <div class="nav-glass flex flex-wrap gap-3 justify-center px-8 py-4 rounded-3xl">
-    <a href="#" class="nav-btn text-white px-6 py-3 rounded-2xl text-lg font-medium">Buy</a>
-    <a href="#" class="nav-btn text-white px-6 py-3 rounded-2xl text-lg font-medium">Earn</a>
-    <a href="#" class="nav-btn text-white px-6 py-3 rounded-2xl text-lg font-medium">Mine</a>
-    <a href="#" class="nav-btn text-white px-6 py-3 rounded-2xl text-lg font-medium">Mint</a>
-    <a href="#" class="nav-btn text-white px-6 py-3 rounded-2xl text-lg font-medium">News</a>
-    <a href="#" class="nav-btn text-white px-6 py-3 rounded-2xl text-lg font-medium">Forum</a>
-    <a href="#" class="nav-btn text-white px-6 py-3 rounded-2xl text-lg font-medium">Donate</a>
+  <!-- Navigation Row - Liquid Glass -->
+  <div class="nav-glass flex flex-wrap gap-3 justify-center px-10 py-4 rounded-3xl">
+    <a href="#" class="nav-btn text-white px-7 py-3 rounded-2xl text-lg font-medium">Buy</a>
+    <a href="#" class="nav-btn text-white px-7 py-3 rounded-2xl text-lg font-medium">Earn</a>
+    <a href="#" class="nav-btn text-white px-7 py-3 rounded-2xl text-lg font-medium">Mine</a>
+    <a href="#" class="nav-btn text-white px-7 py-3 rounded-2xl text-lg font-medium">Mint</a>
+    <a href="#" class="nav-btn text-white px-7 py-3 rounded-2xl text-lg font-medium">News</a>
+    <a href="#" class="nav-btn text-white px-7 py-3 rounded-2xl text-lg font-medium">Forum</a>
+    <a href="#" class="nav-btn text-white px-7 py-3 rounded-2xl text-lg font-medium">Donate</a>
   </div>
 
-  <!-- TradingView Chart -->
-  <div class="glass w-full max-w-6xl mx-auto rounded-3xl overflow-hidden" style="height: 580px;">
+  <!-- TradingView Chart - Heavy Liquid Glass Frame -->
+  <div class="liquid-glass w-full max-w-6xl mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl" style="height: 590px;">
     <div class="tradingview-widget-container" style="height:100%; width:100%">
       <div id="tradingview_chart" style="height:100%; width:100%"></div>
     </div>
