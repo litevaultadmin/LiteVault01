@@ -6,78 +6,88 @@
   <title>LiteVault</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { 
-      background: linear-gradient(145deg, #0a0a0a, #111827, #1e2937); 
-      min-height: 100vh;
-    }
-    .liquid-glass {
-      background: rgba(255, 255, 255, 0.09);
-      backdrop-filter: blur(40px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 
-        0 25px 50px -12px rgba(0, 0, 0, 0.5),
-        inset 0 2px 0 rgba(255, 255, 255, 0.4),
-        inset 0 -2px 0 rgba(255, 255, 255, 0.1),
-        0 0 30px rgba(165, 243, 252, 0.3);
-    }
-    .nav-glass {
-      background: rgba(255, 255, 255, 0.07);
-      backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-    }
-    .nav-btn {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(20px);
-      transition: all 0.3s ease;
-    }
-    .nav-btn:hover {
-      background: rgba(165, 243, 252, 0.25);
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 10px 20px rgba(165, 243, 252, 0.3);
-    }
+    body { background: linear-gradient(135deg, #0a0a0a, #1a1a2e); }
+    .glass { background: rgba(255,255,255,0.08); backdrop-filter: blur(32px); border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 15px 50px rgba(0,0,0,0.6); }
+    .header-glass { background: rgba(255,255,255,0.13); backdrop-filter: blur(36px); box-shadow: 0 0 65px rgba(165,243,252,0.45); }
+    .tab-active { background: rgba(165,243,252,0.3); color: white; border-bottom: 3px solid #67e8f9; }
   </style>
 </head>
-<body class="flex flex-col items-center justify-center gap-10 py-12">
+<body class="min-h-screen text-white">
 
-  <!-- LiteVault Title - Enhanced Liquid Glass -->
-  <div class="liquid-glass px-32 py-8 rounded-[2.5rem] text-center">
-    <h1 class="text-8xl font-bold tracking-[-3px] text-white">LiteVault</h1>
+  <!-- LiteVault Header -->
+  <div class="header-glass px-28 py-7 rounded-3xl mx-auto mt-8 text-center max-w-md">
+    <h1 class="text-7xl font-bold tracking-[-2px]">LiteVault</h1>
   </div>
 
-  <!-- Navigation Row - Liquid Glass -->
-  <div class="nav-glass flex flex-wrap gap-3 justify-center px-10 py-4 rounded-3xl">
-    <a href="#" class="nav-btn text-white px-7 py-3 rounded-2xl text-lg font-medium">Buy</a>
-    <a href="#" class="nav-btn text-white px-7 py-3 rounded-2xl text-lg font-medium">Earn</a>
-    <a href="#" class="nav-btn text-white px-7 py-3 rounded-2xl text-lg font-medium">Mine</a>
-    <a href="#" class="nav-btn text-white px-7 py-3 rounded-2xl text-lg font-medium">Mint</a>
-    <a href="#" class="nav-btn text-white px-7 py-3 rounded-2xl text-lg font-medium">News</a>
-    <a href="#" class="nav-btn text-white px-7 py-3 rounded-2xl text-lg font-medium">Forum</a>
-    <a href="#" class="nav-btn text-white px-7 py-3 rounded-2xl text-lg font-medium">Donate</a>
+  <!-- Navigation Row -->
+  <div class="glass flex justify-center gap-2 mx-auto mt-8 px-6 py-3 rounded-3xl max-w-3xl flex-wrap">
+    <button onclick="switchTab(0)" class="tab px-6 py-2 rounded-xl tab-active">Buy</button>
+    <button onclick="switchTab(1)" class="tab px-6 py-2 rounded-xl">Earn</button>
+    <button onclick="switchTab(2)" class="tab px-6 py-2 rounded-xl">Mine</button>
+    <button onclick="switchTab(3)" class="tab px-6 py-2 rounded-xl">Mint</button>
+    <button onclick="switchTab(4)" class="tab px-6 py-2 rounded-xl">News</button>
+    <button onclick="switchTab(5)" class="tab px-6 py-2 rounded-xl">Forum</button>
+    <button onclick="switchTab(6)" class="tab px-6 py-2 rounded-xl">Donate</button>
   </div>
 
-  <!-- TradingView Chart - Heavy Liquid Glass Frame -->
-  <div class="liquid-glass w-full max-w-6xl mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl" style="height: 590px;">
-    <div class="tradingview-widget-container" style="height:100%; width:100%">
-      <div id="tradingview_chart" style="height:100%; width:100%"></div>
+  <!-- Content Area -->
+  <div id="content" class="max-w-6xl mx-auto mt-8 px-4">
+    <!-- Default Home content with chart -->
+    <div id="tab0" class="tab-content">
+      <div class="glass rounded-3xl p-6" style="height: 580px;">
+        <div class="tradingview-widget-container" style="height:100%; width:100%">
+          <div id="tradingview_chart" style="height:100%; width:100%"></div>
+        </div>
+      </div>
     </div>
+
+    <!-- Other tabs are placeholders except News -->
+    <div id="tab4" class="tab-content hidden grid grid-cols-2 gap-6">
+      <!-- X Live Feed Tile -->
+      <div class="glass rounded-3xl p-4 h-96 overflow-auto">
+        <h2 class="text-xl font-semibold mb-3">Live X • Litecoin / LTC</h2>
+        <a class="twitter-timeline" href="https://twitter.com/search?q=LTC%20OR%20Litecoin%20OR%20%23LTC&src=typed_query" data-height="380">Litecoin mentions on X</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+
+      <!-- Articles / News Tile -->
+      <div class="glass rounded-3xl p-4 h-96 overflow-auto">
+        <h2 class="text-xl font-semibold mb-3">Live Articles • Litecoin</h2>
+        <p class="text-zinc-300">Latest news and articles about Litecoin are shown here.<br><br>
+        • Litecoin price analysis<br>
+        • LTC adoption updates<br>
+        • Mining & ecosystem news</p>
+        <p class="text-cyan-400 mt-6 text-sm">Replace this tile with your favourite news RSS embed later.</p>
+      </div>
+    </div>
+
+    <!-- Other tabs placeholders -->
+    <div id="tab1" class="tab-content hidden text-center py-20 text-xl">Earn page coming soon...</div>
+    <div id="tab2" class="tab-content hidden text-center py-20 text-xl">Mine page coming soon...</div>
+    <div id="tab3" class="tab-content hidden text-center py-20 text-xl">Mint page coming soon...</div>
+    <div id="tab5" class="tab-content hidden text-center py-20 text-xl">Forum page coming soon...</div>
+    <div id="tab6" class="tab-content hidden text-center py-20 text-xl">Donate page coming soon...</div>
   </div>
 
   <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-  <script type="text/javascript">
+  <script>
+  function switchTab(n) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+    document.getElementById('tab' + n).classList.remove('hidden');
+    document.querySelectorAll('.tab').forEach(el => el.classList.remove('tab-active'));
+    document.querySelectorAll('.tab')[n].classList.add('tab-active');
+  }
+
+  // Load TradingView on home
   new TradingView.widget({
     "container_id": "tradingview_chart",
     "width": "100%",
     "height": "100%",
     "symbol": "CRYPTO:LTCUSD",
     "interval": "D",
-    "timezone": "Etc/UTC",
     "theme": "dark",
     "style": "1",
-    "locale": "en",
-    "toolbar_bg": "#0a0a0a",
-    "enable_publishing": false,
-    "hide_side_toolbar": false,
-    "allow_symbol_change": true
+    "locale": "en"
   });
   </script>
 
