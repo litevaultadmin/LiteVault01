@@ -25,14 +25,14 @@
     <button onclick="switchTab(1)" class="tab px-6 py-2 rounded-xl">Earn</button>
     <button onclick="switchTab(2)" class="tab px-6 py-2 rounded-xl">Mine</button>
     <button onclick="switchTab(3)" class="tab px-6 py-2 rounded-xl">Mint</button>
-    <button onclick="switchTab(4)" class="tab px-6 py-2 rounded-xl">News</button>
+    <button onclick="switchTab(4)" class="tab px-6 py-2 rounded-xl">Media</button>
     <button onclick="switchTab(5)" class="tab px-6 py-2 rounded-xl">Forum</button>
     <button onclick="switchTab(6)" class="tab px-6 py-2 rounded-xl">Donate</button>
   </div>
 
-  <!-- Content -->
+  <!-- Content Area -->
   <div id="content" class="max-w-6xl mx-auto mt-8 px-4">
-    <!-- Home / Chart -->
+    <!-- Home - Chart -->
     <div id="tab0" class="tab-content">
       <div class="glass rounded-3xl overflow-hidden" style="height: 580px;">
         <div class="tradingview-widget-container" style="height:100%; width:100%">
@@ -41,27 +41,26 @@
       </div>
     </div>
 
-    <!-- News / Media Page with two tiles -->
-<!-- X Live Feed Tile -->
-<div class="glass rounded-3xl p-5">
-  <h2 class="text-lg font-semibold mb-3">🔴 Live X • Litecoin / LTC Mentions</h2>
-  <a class="twitter-timeline" 
-     href="https://twitter.com/search?q=LTC%20OR%20Litecoin%20OR%20%23LTC%20OR%20%23Litecoin&src=typed_query" 
-     data-theme="dark" 
-     data-height="420" 
-     data-chrome="noheader nofooter noborders">Litecoin mentions on X</a>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-
-      <!-- Your RSS News Widget Tile -->
+    <!-- Media Page with two tiles -->
+    <div id="tab4" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Live X Feed -->
       <div class="glass rounded-3xl p-5">
-        <h2 class="text-lg font-semibold mb-3">Live Articles & News • Litecoin</h2>
+        <h2 class="text-lg font-semibold mb-3">🔴 Live X • Litecoin / LTC Mentions</h2>
+        <a class="twitter-timeline" 
+           href="https://twitter.com/search?q=LTC%20OR%20Litecoin%20OR%20%23LTC&src=typed_query" 
+           data-theme="dark" data-height="420" data-chrome="noheader nofooter noborders">Litecoin on X</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+
+      <!-- Your RSS Widget -->
+      <div class="glass rounded-3xl p-5">
+        <h2 class="text-lg font-semibold mb-3">📰 Live Articles & News • Litecoin</h2>
         <rssapp-wall id="tI7fIEv1TvlxzLKj"></rssapp-wall>
         <script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
       </div>
     </div>
 
-    <!-- Other tabs placeholders -->
+    <!-- Placeholder tabs -->
     <div id="tab1" class="tab-content hidden text-center py-20 text-xl">Earn coming soon...</div>
     <div id="tab2" class="tab-content hidden text-center py-20 text-xl">Mine coming soon...</div>
     <div id="tab3" class="tab-content hidden text-center py-20 text-xl">Mint coming soon...</div>
@@ -74,13 +73,14 @@
   function switchTab(n) {
     document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
     document.getElementById('tab' + n).classList.remove('hidden');
+
     document.querySelectorAll('.tab').forEach((el, i) => {
       if (i === n) el.classList.add('tab-active');
       else el.classList.remove('tab-active');
     });
   }
 
-  // Load TradingView chart
+  // Initial TradingView load
   new TradingView.widget({
     "container_id": "tradingview_chart",
     "width": "100%",
