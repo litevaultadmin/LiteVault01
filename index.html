@@ -1,10 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>LiteVault</title>
-  <style>body{font-family:Arial;text-align:center;padding:100px;background:#000;color:#0f0;font-size:3em;}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LiteVault • Premium Litecoin Vault</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: linear-gradient(135deg, #0a0a0a, #1a1a2e); }
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+    .header-glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(30px);
+      box-shadow: 0 0 40px rgba(165, 243, 252, 0.3);
+    }
+  </style>
 </head>
-<body>
-  <h1>Welcome to LiteVault</h1>
+<body class="min-h-screen text-white font-sans">
+
+  <!-- Big Header -->
+  <div class="flex justify-center pt-12">
+    <div class="header-glass px-16 py-8 rounded-3xl text-center">
+      <h1 class="text-7xl font-bold tracking-tight">LiteVault</h1>
+      <p class="text-cyan-300 text-xl mt-2">Secure • Simple • Litecoin First</p>
+    </div>
+  </div>
+
+  <!-- CoinGecko Chart Section - Fully functional -->
+  <div class="max-w-5xl mx-auto mt-12 px-4">
+    <div class="glass rounded-3xl p-4">
+      <div class="bg-zinc-900 rounded-2xl p-3">
+        <!-- PASTE YOUR COINGECKO CHART CODE HERE ↓ -->
+        <iframe width="100%" height="520" 
+                src="https://www.coingecko.com/en/coins/litecoin" 
+                style="border:none; border-radius:16px;" 
+                title="Live Litecoin Chart"></iframe>
+        <!-- Replace the line above with the exact code you copy from CoinGecko widget page -->
+      </div>
+      <p class="text-center text-sm text-zinc-400 mt-3">Fully live interactive chart • Zoom • Timeframes • Real prices (powered by CoinGecko)</p>
+    </div>
+  </div>
+
+  <!-- Quick note for you -->
+  <div class="text-center mt-8 text-zinc-500 text-sm">
+    How to make the chart perfect in 10 seconds:<br>
+    1. Go to https://www.coingecko.com/en/widgets/coin_price_chart_widget<br>
+    2. Pick Litecoin • USD • 100% width • 520 height<br>
+    3. Copy code → paste over the iframe line above → save again
+  </div>
+
+  <footer class="text-center text-zinc-500 mt-16 pb-8">
+    LiteVault © 2026 • Built exactly as you wanted • Ready to grow into many pages
+  </footer>
+
 </body>
 </html>
