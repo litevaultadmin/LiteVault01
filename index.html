@@ -5,13 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LiteVault</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <style>
     body { background: linear-gradient(135deg, #0a0a0a, #1a1a2e); }
     .glass { background: rgba(255,255,255,0.08); backdrop-filter: blur(32px); border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 15px 50px rgba(0,0,0,0.6); }
     .header-glass { background: rgba(255,255,255,0.13); backdrop-filter: blur(36px); box-shadow: 0 0 65px rgba(165,243,252,0.45); }
     .tab-active { background: rgba(165,243,252,0.3); color: white; border-bottom: 3px solid #67e8f9; }
-    .scroll-tile { overflow-y: auto; scrollbar-width: thin; scrollbar-color: #67e8f9 #1e2937; }
   </style>
 </head>
 <body class="min-h-screen text-white">
@@ -34,7 +32,7 @@
 
   <!-- Content -->
   <div class="max-w-6xl mx-auto mt-8 px-4">
-    <!-- Buy -->
+    <!-- Buy / Chart -->
     <div id="tab0" class="tab-content">
       <div class="glass rounded-3xl overflow-hidden" style="height: 580px;">
         <div class="tradingview-widget-container" style="height:100%; width:100%">
@@ -43,20 +41,18 @@
       </div>
     </div>
 
-    <!-- Media -->
+    <!-- Media - Two Tiles -->
     <div id="tab4" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Live X Feed -->
+      <!-- Live X Feed (your new widget) -->
       <div class="glass rounded-3xl p-5 h-[520px] overflow-hidden">
         <h2 class="text-lg font-semibold mb-3">Litecoin</h2>
-        <a class="twitter-timeline" 
-           href="https://twitter.com/search?q=LTC%20OR%20Litecoin%20OR%20%23LTC%20OR%20%23Litecoin&src=typed_query" 
-           data-theme="dark" data-height="480" data-chrome="noheader nofooter noborders">Litecoin</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <rssapp-wall id="c5hpbVe383CkZM3F"></rssapp-wall>
+        <script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
       </div>
 
-      <!-- RSS Articles -->
-      <div class="glass rounded-3xl p-5 h-[520px] overflow-y-auto scroll-tile">
-        <h2 class="text-lg font-semibold sticky top-0 bg-zinc-900 py-3 z-10">Live Articles • Litecoin</h2>
+      <!-- Articles / News -->
+      <div class="glass rounded-3xl p-5 h-[520px] overflow-y-auto">
+        <h2 class="text-lg font-semibold sticky top-0 bg-zinc-900 py-3">Live Articles • Litecoin</h2>
         <rssapp-wall id="tI7fIEv1TvlxzLKj"></rssapp-wall>
         <script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
       </div>
