@@ -14,7 +14,7 @@
 </head>
 <body class="min-h-screen text-white">
 
-  <!-- Header -->
+  <!-- LiteVault Header -->
   <div class="header-glass px-28 py-7 rounded-3xl mx-auto mt-8 text-center max-w-md">
     <h1 class="text-7xl font-bold tracking-[-2px]">LiteVault</h1>
   </div>
@@ -32,7 +32,7 @@
 
   <!-- Content -->
   <div class="max-w-6xl mx-auto mt-8 px-4">
-    <!-- Buy / Chart -->
+    <!-- Buy - Chart -->
     <div id="tab0" class="tab-content">
       <div class="glass rounded-3xl overflow-hidden" style="height: 580px;">
         <div class="tradingview-widget-container" style="height:100%; width:100%">
@@ -41,20 +41,20 @@
       </div>
     </div>
 
-    <!-- Media - Live X + RSS -->
+    <!-- Media - Two Tiles -->
     <div id="tab4" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-6">
       <!-- Live X Feed -->
-      <div class="glass rounded-3xl p-5 h-[520px] overflow-hidden">
-        <h2 class="text-lg font-semibold mb-3">🔴 Live X • Litecoin / LTC Mentions</h2>
+      <div class="glass rounded-3xl p-5 h-[520px] overflow-auto">
+        <h2 class="text-lg font-semibold mb-3">Litecoin</h2>
         <a class="twitter-timeline" 
-           href="https://twitter.com/search?q=LTC%20OR%20Litecoin%20OR%20%23LTC&src=typed_query" 
-           data-theme="dark" data-height="460" data-chrome="noheader nofooter noborders">Litecoin on X</a>
+           href="https://twitter.com/search?q=LTC%20OR%20Litecoin%20OR%20%23LTC%20OR%20%23Litecoin&src=typed_query" 
+           data-theme="dark" data-height="480" data-chrome="noheader nofooter noborders">Litecoin</a>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
       </div>
 
-      <!-- RSS Articles -->
-      <div class="glass rounded-3xl p-5 h-[520px] overflow-hidden">
-        <h2 class="text-lg font-semibold mb-3">📰 Live Articles • Litecoin</h2>
+      <!-- RSS Articles Tile with Scroll -->
+      <div class="glass rounded-3xl p-5 h-[520px] overflow-y-auto">
+        <h2 class="text-lg font-semibold mb-3 sticky top-0 bg-zinc-900 py-2">Live Articles • Litecoin</h2>
         <rssapp-wall id="tI7fIEv1TvlxzLKj"></rssapp-wall>
         <script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
       </div>
@@ -80,7 +80,6 @@
     });
   }
 
-  // Load TradingView
   new TradingView.widget({
     "container_id": "tradingview_chart",
     "width": "100%",
