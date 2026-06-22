@@ -10,6 +10,7 @@
     .glass { background: rgba(255,255,255,0.08); backdrop-filter: blur(32px); border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 15px 50px rgba(0,0,0,0.6); }
     .header-glass { background: rgba(255,255,255,0.13); backdrop-filter: blur(36px); box-shadow: 0 0 65px rgba(165,243,252,0.45); }
     .tab-active { background: rgba(165,243,252,0.3); color: white; border-bottom: 3px solid #67e8f9; }
+    .scroll-tile { overflow-y: auto; height: 520px; scrollbar-width: thin; scrollbar-color: #67e8f9 #1e2937; }
   </style>
 </head>
 <body class="min-h-screen text-white">
@@ -41,20 +42,20 @@
       </div>
     </div>
 
-    <!-- Media - Two Tiles -->
+    <!-- Media -->
     <div id="tab4" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Live X Feed (your new widget) -->
-      <div class="glass rounded-3xl p-5 h-[520px] overflow-hidden">
+      <!-- Live X Feed -->
+      <div class="glass rounded-3xl p-5 scroll-tile">
         <h2 class="text-lg font-semibold mb-3">Litecoin</h2>
-        <rssapp-wall id="c5hpbVe383CkZM3F"></rssapp-wall>
-        <script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
+        <rssapp-feed id="c5hpbVe383CkZM3F"></rssapp-feed>
+        <script src="https://widget.rss.app/v1/feed.js" type="text/javascript" async></script>
       </div>
 
-      <!-- Articles / News -->
-      <div class="glass rounded-3xl p-5 h-[520px] overflow-y-auto">
-        <h2 class="text-lg font-semibold sticky top-0 bg-zinc-900 py-3">Live Articles • Litecoin</h2>
-        <rssapp-wall id="tI7fIEv1TvlxzLKj"></rssapp-wall>
-        <script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
+      <!-- Live Articles -->
+      <div class="glass rounded-3xl p-5 scroll-tile">
+        <h2 class="text-lg font-semibold mb-3 sticky top-0 bg-zinc-900 py-3">Live Articles • Litecoin</h2>
+        <rssapp-feed id="tI7fIEv1TvlxzLKj"></rssapp-feed>
+        <script src="https://widget.rss.app/v1/feed.js" type="text/javascript" async></script>
       </div>
     </div>
 
