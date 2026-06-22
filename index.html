@@ -9,26 +9,20 @@
     body { background: linear-gradient(135deg, #0a0a0a, #1a1a2e); }
     .glass { background: rgba(255,255,255,0.08); backdrop-filter: blur(28px); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 10px 50px rgba(0,0,0,0.6); }
     .header-glass { background: rgba(255,255,255,0.12); backdrop-filter: blur(32px); box-shadow: 0 0 60px rgba(165,243,252,0.4); }
+    .nav-glass { background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); }
     .nav-btn { background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); transition: all 0.2s; }
-    .nav-btn:hover { background: rgba(165,243,252,0.2); transform: translateY(-2px); }
+    .nav-btn:hover { background: rgba(165,243,252,0.25); transform: translateY(-2px); }
   </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center gap-12 py-8">
+<body class="min-h-screen flex flex-col items-center pt-8 gap-8">
 
   <!-- LiteVault Header -->
-  <div class="header-glass px-28 py-9 rounded-3xl text-center">
+  <div class="header-glass px-28 py-8 rounded-3xl text-center">
     <h1 class="text-8xl font-bold tracking-[-2px] text-white">LiteVault</h1>
   </div>
 
-  <!-- TradingView Chart -->
-  <div class="glass w-full max-w-6xl mx-auto rounded-3xl overflow-hidden" style="height: 580px;">
-    <div class="tradingview-widget-container" style="height:100%; width:100%">
-      <div id="tradingview_chart" style="height:100%; width:100%"></div>
-    </div>
-  </div>
-
-  <!-- Navigation Buttons -->
-  <div class="flex flex-wrap gap-3 justify-center">
+  <!-- Navigation Buttons (right below header) -->
+  <div class="nav-glass flex flex-wrap gap-3 justify-center px-8 py-4 rounded-3xl">
     <a href="#" class="nav-btn text-white px-6 py-3 rounded-2xl text-lg font-medium">Buy</a>
     <a href="#" class="nav-btn text-white px-6 py-3 rounded-2xl text-lg font-medium">Earn</a>
     <a href="#" class="nav-btn text-white px-6 py-3 rounded-2xl text-lg font-medium">Mine</a>
@@ -36,6 +30,13 @@
     <a href="#" class="nav-btn text-white px-6 py-3 rounded-2xl text-lg font-medium">News</a>
     <a href="#" class="nav-btn text-white px-6 py-3 rounded-2xl text-lg font-medium">Forum</a>
     <a href="#" class="nav-btn text-white px-6 py-3 rounded-2xl text-lg font-medium">Donate</a>
+  </div>
+
+  <!-- TradingView Chart -->
+  <div class="glass w-full max-w-6xl mx-auto rounded-3xl overflow-hidden" style="height: 580px;">
+    <div class="tradingview-widget-container" style="height:100%; width:100%">
+      <div id="tradingview_chart" style="height:100%; width:100%"></div>
+    </div>
   </div>
 
   <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
